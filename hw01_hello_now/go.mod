@@ -1,4 +1,4 @@
-module github.com/blacklivesmatter
+module github.com/IEvtushenko/hw-test/hw01_hello_now
 
 go 1.14
 
