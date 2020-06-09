@@ -1,4 +1,4 @@
-module github.com/IEvtushenko/hw-test/tree/master/hw01_hello_now
+module github.com/IEvtushenko/hw01_hello_now
 
 go 1.14
 
