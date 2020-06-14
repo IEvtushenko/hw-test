@@ -32,7 +32,7 @@ func Unpack(s string) (string, error) {
 				result = result[:len(result)-1]
 			}
 			if number > 0 {
-				result += strings.Repeat(string(prevRune), number-1)
+				result += strings.Repeat(prevRune, number-1)
 			}
 		} else {
 			result += str
