@@ -11,7 +11,7 @@ func Top10(words string) []string {
 		return result
 	}
 
-	r := regexp.MustCompile("\\s*\\d+\\s*|[\\s*\\W*\\s*]+")
+	r := regexp.MustCompile(`\\s*\\d+\\s*|[\\s*\\W*\\s*]+`)
 	words = r.ReplaceAllString(words, " ")
 	if strings.TrimSpace(words) == "" {
 		return result
