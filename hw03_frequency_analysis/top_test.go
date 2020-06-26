@@ -98,7 +98,7 @@ func TestTop10(t *testing.T) {
 	})
 
 	t.Run("positive test top less than 10", func(t *testing.T) {
-		expected := []string{"когда", "тест", "слов", "меньше", "десяти", "", "", "", "", ""}
+		expected := []string{"когда", "тест", "слов", "меньше", "десяти"}
 		actual := Top10(textTopLessThan10)
 		assert.Subset(t, expected, actual)
 

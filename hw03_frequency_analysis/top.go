@@ -44,7 +44,7 @@ func Top10(words string) []string {
 		countOfTop = 10
 	}
 
-	result = make([]string, 10)
+	result = make([]string, countOfTop)
 	for i := 0; i < countOfTop; i++ {
 		result[i] = TopWords[i].Word
 	}
