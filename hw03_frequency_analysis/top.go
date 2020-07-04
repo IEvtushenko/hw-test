@@ -11,13 +11,13 @@ func Top10(words string) []string {
 		return result
 	}
 
-	r := regexp.MustCompile(`\\s*\\d+\\s*|[\\s*\\W*\\s*]+`)
+	r := regexp.MustCompile(`\s*\d+\s*|[\s*\W*\s*]+`)
 	words = r.ReplaceAllString(words, " ")
 	if strings.TrimSpace(words) == "" {
 		return result
 	}
 
-	wordsSlice := strings.Split(string(words), " ")
+	wordsSlice := strings.Split(words, " ")
 	wordsCounted := make(map[string]int)
 	for _, word := range wordsSlice {
 		wordsCounted[strings.ToLower(word)]++
