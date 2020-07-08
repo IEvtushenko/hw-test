@@ -1,4 +1,4 @@
-package hw02_unpack_string //nolint:golint,stylecheck
+package hw02_unpack_string
 
 import (
 	"errors"
@@ -9,11 +9,8 @@ import (
 var ErrInvalidString = errors.New("invalid string")
 
 func Unpack(s string) (string, error) {
-	var result string
-	var prevRune string
-	// Попробовать привести к строке
-	// Попробовать привести к инту, если так то ...
-	// Как взять нужный элемент?
+	var result strings.Builder
+	var prevSymbol string
 	if len(s) == 0 {
 		return "", nil
 	}
@@ -25,20 +22,22 @@ func Unpack(s string) (string, error) {
 	for _, r := range s {
 		str := string(r)
 		if number, err := strconv.Atoi(str); err == nil {
-			if _, err := strconv.Atoi(prevRune); err == nil {
+			if _, err := strconv.Atoi(prevSymbol); err == nil {
 				return "", ErrInvalidString
 			}
 			if number == 0 {
-				result = result[:len(result)-1]
+				str = result.String()[:len(result.String())-len(prevSymbol)]
+				result.Reset()
+				result.WriteString(str)
 			}
 			if number > 0 {
-				result += strings.Repeat(prevRune, number-1)
+				result.WriteString(strings.Repeat(prevSymbol, number-1))
 			}
 		} else {
-			result += str
+			result.WriteString(str)
 		}
-		prevRune = str
+		prevSymbol = str
 	}
 
-	return result, nil
+	return result.String(), nil
 }
